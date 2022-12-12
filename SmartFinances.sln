@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartFinances.Core", "SmartFinances.Core\SmartFinances.Core.csproj", "{4864C7DC-984E-4048-97E7-2D8CFF173164}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartFinances.Application", "SmartFinances.Application\SmartFinances.Application.csproj", "{A4C2F14B-BAB4-47F9-965D-DF57DD6C9D29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartFinances.Infrastructure", "SmartFinances.Infrastructure\SmartFinances.Infrastructure.csproj", "{CFBDE7CD-4C3A-4DF5-BABA-84C71F7282FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartFinances.NoIdentity", "SmartFinances\SmartFinances.NoIdentity.csproj", "{A3107B23-71C7-4756-8D93-9E8D604EAB1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartFinances.WithIdentity", "SmartFinances.WithIdentity\SmartFinances.WithIdentity.csproj", "{94E21836-8310-43DD-91B3-F494B2718C3E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4864C7DC-984E-4048-97E7-2D8CFF173164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4864C7DC-984E-4048-97E7-2D8CFF173164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4864C7DC-984E-4048-97E7-2D8CFF173164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4864C7DC-984E-4048-97E7-2D8CFF173164}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4C2F14B-BAB4-47F9-965D-DF57DD6C9D29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4C2F14B-BAB4-47F9-965D-DF57DD6C9D29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4C2F14B-BAB4-47F9-965D-DF57DD6C9D29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4C2F14B-BAB4-47F9-965D-DF57DD6C9D29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFBDE7CD-4C3A-4DF5-BABA-84C71F7282FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFBDE7CD-4C3A-4DF5-BABA-84C71F7282FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFBDE7CD-4C3A-4DF5-BABA-84C71F7282FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFBDE7CD-4C3A-4DF5-BABA-84C71F7282FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3107B23-71C7-4756-8D93-9E8D604EAB1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3107B23-71C7-4756-8D93-9E8D604EAB1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3107B23-71C7-4756-8D93-9E8D604EAB1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3107B23-71C7-4756-8D93-9E8D604EAB1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94E21836-8310-43DD-91B3-F494B2718C3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94E21836-8310-43DD-91B3-F494B2718C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94E21836-8310-43DD-91B3-F494B2718C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94E21836-8310-43DD-91B3-F494B2718C3E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97964E9E-25E0-436F-91DD-D1C86EFEF00E}
+	EndGlobalSection
+EndGlobal
