@@ -1,0 +1,29 @@
+﻿@model SmartFinances.Models.Overview.OverviewVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Account Overview</h1>
+
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AccountNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AccountNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Balance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Balance)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="AddBalance" class="btn btn-success">Add balace</a>
+</div>
