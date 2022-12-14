@@ -1,7 +1,13 @@
+using SmartFinances.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var configuration = builder.Configuration;
+
 builder.Services.AddControllersWithViews();
+
+builder.Services.ConfigureInfractructureServices(configuration);
 
 var app = builder.Build();
 
