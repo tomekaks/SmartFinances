@@ -12,5 +12,6 @@ namespace SmartFinances.Application.Interfaces.Factories
     {
         Account CreateAccount(AccountDto accountDto);
         AccountDto CreateAccountDto(Account account);
+        Account MapToModel(AccountDto accountDto, Account model);
     }
 }

@@ -1,4 +1,9 @@
+using MediatR;
+using SmartFinances.Application;
 using SmartFinances.Infrastructure;
+using SmartFinances.Interfaces;
+using SmartFinances.Services;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +13,10 @@ var configuration = builder.Configuration;
 builder.Services.AddControllersWithViews();
 
 builder.Services.ConfigureInfractructureServices(configuration);
+builder.Services.ConfigureApplicationServices();
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddScoped<IOverviewService, OverviewService>();
 
 var app = builder.Build();
 

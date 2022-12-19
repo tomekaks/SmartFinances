@@ -28,5 +28,10 @@ namespace SmartFinances.Application.Factories
         {
             return _mapper.Map<AccountDto>(account);
         }
+
+        public Account MapToModel(AccountDto accountDto, Account model)
+        {
+           return _mapper.Map(accountDto, model);
+        }
     }
 }
