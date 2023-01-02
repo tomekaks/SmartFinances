@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using SmartFinances.Application.Dto;
+using SmartFinances.Application.Dto.Enums;
 using SmartFinances.Core.Data;
+using SmartFinances.Core.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,11 @@ namespace SmartFinances.Application.Mappings
             CreateMap<Account, AccountDto>();
             CreateMap<AccountDto, Account>()
                 .ForMember(src => src.Number, opt => opt.Ignore());
+
+            CreateMap<ExpenseType, ExpenseTypeDto>().ReverseMap();
+
+            CreateMap<Expense, ExpenseDto>().ReverseMap();
+            CreateMap<List<Expense>, List<ExpenseDto>>().ReverseMap();
         }
     }
 }

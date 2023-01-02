@@ -10,6 +10,7 @@ namespace SmartFinances.Application.Interfaces.Repositories
     {
         public IAccountRepository Accounts { get; }
         public ITransferRepository Transfers { get; }
+        public IExpenseRepository Expenses { get; }
         Task SaveAsync();
     }
 }
