@@ -14,7 +14,7 @@ namespace SmartFinances.Infrastructure.DataBase.Configurations
         public void Configure(EntityTypeBuilder<Account> builder)
         {
             builder.Property(q => q.Number)
-                   .IsRequired();
+                   .IsRequired(true);
 
             builder.Property(q => q.Balance)
                    .IsRequired();

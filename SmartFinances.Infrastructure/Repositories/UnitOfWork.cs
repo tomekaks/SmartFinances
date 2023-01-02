@@ -16,11 +16,12 @@ namespace SmartFinances.Infrastructure.Repositories
             _context = context;
             Accounts = new AccountRepository(context);
             Transfers = new TransferRepository(context);
+            Expenses = new ExpenseRepositiory(context);
         }
 
         public IAccountRepository Accounts { get; private set; }
-
         public ITransferRepository Transfers { get; private set; }
+        public IExpenseRepository Expenses { get; private set; }
 
         public void Dispose()
         {
