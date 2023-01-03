@@ -17,6 +17,7 @@ builder.Services.ConfigureApplicationServices();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddScoped<IOverviewService, OverviewService>();
+builder.Services.AddScoped<IExpensesService, ExpensesService>();
 
 var app = builder.Build();
 

@@ -22,7 +22,7 @@ namespace SmartFinances.Application.Mappings
             CreateMap<ExpenseType, ExpenseTypeDto>().ReverseMap();
 
             CreateMap<Expense, ExpenseDto>().ReverseMap();
-            CreateMap<List<Expense>, List<ExpenseDto>>().ReverseMap();
+            //CreateMap<List<Expense>, List<ExpenseDto>>().ReverseMap();
         }
     }
 }

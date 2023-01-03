@@ -1,0 +1,39 @@
+﻿@model SmartFinances.Models.Expenses.ExpensesVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Expenses</h1>
+<br/>
+
+<p>
+    <a asp-action="AddExpense" class="btn btn-success">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Expenses) {
+        <tr>
+            <td>@Html.DisplayFor(modelitem => item.Name)</td>
+            <td>@Html.DisplayFor(modelitem => item.Amount)</td>
+            <td>@Html.DisplayFor(modelitem => item.Date)</td>
+            <td>@Html.DisplayFor(modelitem => item.Type)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

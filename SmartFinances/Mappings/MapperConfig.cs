@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using SmartFinances.Application.Dto;
+using SmartFinances.Models.Expenses;
 using SmartFinances.Models.Overview;
 
 namespace SmartFinances.Mappings
@@ -11,6 +12,8 @@ namespace SmartFinances.Mappings
             CreateMap<AccountDto, OverviewVM>()
                 .ForMember(dest => dest.AccountNumber, opt => opt.MapFrom(src => src.Number)).ReverseMap();
             CreateMap<AccountDto, UpdateBalanceVM>().ReverseMap();
+
+            CreateMap<ExpenseDto, AddExpenseVM>().ReverseMap();
         }
     }
 }

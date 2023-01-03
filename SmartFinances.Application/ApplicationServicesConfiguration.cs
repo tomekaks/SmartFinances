@@ -16,6 +16,7 @@ namespace SmartFinances.Application
         public static IServiceCollection ConfigureApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IAccountFactory, AccountFactory>();
+            services.AddScoped<IExpenseFactory, ExpenseFactory>();
 
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
