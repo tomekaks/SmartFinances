@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using SmartFinances.Application;
 using SmartFinances.Infrastructure;
 using SmartFinances.Interfaces;
