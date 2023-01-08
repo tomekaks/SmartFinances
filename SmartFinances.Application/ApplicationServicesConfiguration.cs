@@ -2,6 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using SmartFinances.Application.Factories;
 using SmartFinances.Application.Interfaces.Factories;
+using SmartFinances.Application.Interfaces.Services;
+using SmartFinances.Application.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,8 @@ namespace SmartFinances.Application
         {
             services.AddScoped<IAccountFactory, AccountFactory>();
             services.AddScoped<IExpenseFactory, ExpenseFactory>();
+
+            services.AddScoped<IAuthService, AuthService>();
 
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
