@@ -59,5 +59,15 @@ namespace SmartFinances.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+
+            await _accountService.Logout();
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

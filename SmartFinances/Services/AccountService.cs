@@ -23,6 +23,11 @@ namespace SmartFinances.Services
             await _authService.Login(user);
         }
 
+        public async Task Logout()
+        {
+            await _authService.Logout();
+        }
+
         public async Task Register(RegisterVM registerVM)
         {
             var newUser = _mapper.Map<RegisterDto>(registerVM);

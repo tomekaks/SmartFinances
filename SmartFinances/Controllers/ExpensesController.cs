@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SmartFinances.Interfaces;
 using SmartFinances.Models.Expenses;
 
 namespace SmartFinances.Controllers
 {
+    [Authorize]
     public class ExpensesController : Controller
     {
         private readonly IExpensesService _expensesService;

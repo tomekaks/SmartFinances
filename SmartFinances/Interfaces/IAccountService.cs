@@ -6,5 +6,6 @@ namespace SmartFinances.Interfaces
     {
         Task Login(LoginVM loginVM);
         Task Register(RegisterVM registerVM);
+        Task Logout();
     }
 }

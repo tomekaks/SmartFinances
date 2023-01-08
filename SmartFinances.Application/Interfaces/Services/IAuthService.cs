@@ -11,5 +11,6 @@ namespace SmartFinances.Application.Interfaces.Services
     {
         Task<UserDto> Login(LoginDto loginDto);
         Task<bool> Register(RegisterDto registerDto);
+        Task Logout();
     }
 }

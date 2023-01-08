@@ -32,6 +32,11 @@ namespace SmartFinances.Application.Services
             return _mapper.Map<UserDto>(applicationUser);
         }
 
+        public async Task Logout()
+        {
+            await _signInManager.SignOutAsync();
+        }
+
         public async Task<bool> Register(RegisterDto registerDto)
         {
             var user = _mapper.Map<ApplicationUser>(registerDto);
@@ -43,6 +48,21 @@ namespace SmartFinances.Application.Services
             }
                 
             return true;
+        }
+        private string GenerateAccountNumber()
+        {
+            var rand = new Random();
+            var firstNumbers = rand.Next(10, 99).ToString();
+            var secondNumbers = rand.Next(100000, 999999).ToString();
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var letters = new char[4];
+
+            for (int i = 0; i < letters.Length; i++)
+            {
+                letters[i] = chars[rand.Next(0, chars.Length - 1)];
+            }
+
+            return firstNumbers + letters.ToString() + secondNumbers;
         }
     }
 }

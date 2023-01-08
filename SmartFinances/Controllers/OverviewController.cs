@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SmartFinances.Interfaces;
 using SmartFinances.Models.Overview;
 
 namespace SmartFinances.Controllers
 {
+    [Authorize]
     public class OverviewController : Controller
     {
         private readonly IOverviewService _overviewService;
