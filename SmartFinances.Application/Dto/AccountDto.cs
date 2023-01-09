@@ -11,5 +11,7 @@ namespace SmartFinances.Application.Dto
         public int Id { get; set; }
         public string Number { get; set; }
         public decimal Balance { get; set; }
+        public string UserId { get; set; }
+        public List<ExpenseDto> Expenses { get; set; }
     }
 }

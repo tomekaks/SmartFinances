@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartFinances.Application.Dto.Account
+namespace SmartFinances.Application.Dto.Users
 {
     public class UserDto
     {
@@ -13,5 +13,6 @@ namespace SmartFinances.Application.Dto.Account
         public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public List<AccountDto> MyProperty { get; set; }
     }
 }

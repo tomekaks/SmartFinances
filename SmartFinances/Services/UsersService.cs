@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
-using SmartFinances.Application.Dto.Account;
+using SmartFinances.Application.Dto.Users;
 using SmartFinances.Application.Interfaces.Services;
 using SmartFinances.Interfaces;
-using SmartFinances.Models.Account;
+using SmartFinances.Models.Users;
 
 namespace SmartFinances.Services
 {
-    public class AccountService : IAccountService
+    public class UsersService : IUsersService
     {
         private readonly IMapper _mapper;
         private readonly IAuthService _authService;
 
-        public AccountService(IMapper mapper, IAuthService authService)
+        public UsersService(IMapper mapper, IAuthService authService)
         {
             _mapper = mapper;
             _authService = authService;

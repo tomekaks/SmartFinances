@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SmartFinances.Models.Account
+namespace SmartFinances.Models.Users
 {
     public class RegisterVM
     {

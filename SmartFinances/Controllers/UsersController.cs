@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartFinances.Interfaces;
-using SmartFinances.Models.Account;
+using SmartFinances.Models.Users;
 
 namespace SmartFinances.Controllers
 {
-    public class AccountController : Controller
+    public class UsersController : Controller
     {
-        private readonly IAccountService _accountService;
+        private readonly IUsersService _usersService;
 
-        public AccountController(IAccountService accountService)
+        public UsersController(IUsersService usersService)
         {
-            _accountService = accountService;
+            _usersService = usersService;
         }
 
         public IActionResult Index()
@@ -34,7 +34,7 @@ namespace SmartFinances.Controllers
                 return BadRequest();
             }
 
-            await _accountService.Register(model);
+            await _usersService.Register(model);
 
             return RedirectToAction("Index", "Home");
         }
@@ -55,7 +55,7 @@ namespace SmartFinances.Controllers
                 return BadRequest();
             }
 
-            await _accountService.Login(model);
+            await _usersService.Login(model);
 
             return RedirectToAction("Index", "Home");
         }
@@ -65,7 +65,7 @@ namespace SmartFinances.Controllers
         public async Task<IActionResult> Logout()
         {
 
-            await _accountService.Logout();
+            await _usersService.Logout();
 
             return RedirectToAction("Index", "Home");
         }

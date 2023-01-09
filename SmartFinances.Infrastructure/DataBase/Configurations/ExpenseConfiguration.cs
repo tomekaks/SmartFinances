@@ -25,6 +25,10 @@ namespace SmartFinances.Infrastructure.DataBase.Configurations
             builder.Property(p => p.Type)
                    .IsRequired()
                    .HasConversion<string>();
+
+            builder.HasOne(a => a.Account)
+                   .WithMany()
+                   .HasForeignKey(e => e.AccountId);
         }
     }
 }

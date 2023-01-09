@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
-using SmartFinances.Application.Dto.Account;
+using SmartFinances.Application.Dto.Users;
 using SmartFinances.Application.Interfaces.Services;
 using SmartFinances.Core.Data;
 using System;

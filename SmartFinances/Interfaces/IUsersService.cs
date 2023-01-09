@@ -1,8 +1,8 @@
-﻿using SmartFinances.Models.Account;
+﻿using SmartFinances.Models.Users;
 
 namespace SmartFinances.Interfaces
 {
-    public interface IAccountService
+    public interface IUsersService
     {
         Task Login(LoginVM loginVM);
         Task Register(RegisterVM registerVM);

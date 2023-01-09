@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartFinances.Application.Dto.Account
+namespace SmartFinances.Application.Dto.Users
 {
     public class LoginDto
     {

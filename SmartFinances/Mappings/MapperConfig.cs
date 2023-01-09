@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using SmartFinances.Application.Dto;
-using SmartFinances.Application.Dto.Account;
-using SmartFinances.Models.Account;
+using SmartFinances.Application.Dto.Users;
+using SmartFinances.Models.Users;
 using SmartFinances.Models.Expenses;
 using SmartFinances.Models.Overview;
 

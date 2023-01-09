@@ -14,5 +14,7 @@ namespace SmartFinances.Core.Data
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
         public ExpenseType Type { get; set; }
+        public int AccountId { get; set; }
+        public Account Account { get; set; }
     }
 }
