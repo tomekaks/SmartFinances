@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
+using SmartFinances.Application.CQRS.Account.Requests.Commands;
 using SmartFinances.Application.Dto.Users;
 using SmartFinances.Application.Interfaces.Services;
 using SmartFinances.Core.Data;
@@ -16,20 +18,20 @@ namespace SmartFinances.Application.Services
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        public AuthService(UserManager<ApplicationUser> userManager, IMapper mapper, SignInManager<ApplicationUser> signInManager)
+        public AuthService(UserManager<ApplicationUser> userManager, IMapper mapper, 
+                           SignInManager<ApplicationUser> signInManager, IMediator mediator)
         {
             _userManager = userManager;
             _mapper = mapper;
             _signInManager = signInManager;
+            _mediator = mediator;
         }
 
-        public async Task<UserDto> Login(LoginDto loginDto)
+        public async Task Login(LoginDto loginDto)
         {
-            var applicationUser = _mapper.Map<ApplicationUser>(loginDto);
-            await _signInManager.SignInAsync(applicationUser, isPersistent: false);
-
-            return _mapper.Map<UserDto>(applicationUser);
+            await _signInManager.PasswordSignInAsync(loginDto.UserName, loginDto.Password, isPersistent: false, lockoutOnFailure: false);
         }
 
         public async Task Logout()
@@ -46,7 +48,7 @@ namespace SmartFinances.Application.Services
             {
                 return false;
             }
-                
+            await _mediator.Send(new CreateAccountCommand { UserId = user.Id });    
             return true;
         }
         private string GenerateAccountNumber()
@@ -54,15 +56,17 @@ namespace SmartFinances.Application.Services
             var rand = new Random();
             var firstNumbers = rand.Next(10, 99).ToString();
             var secondNumbers = rand.Next(100000, 999999).ToString();
-            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            var letters = new char[4];
+            var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var chars = new char[4];
 
-            for (int i = 0; i < letters.Length; i++)
+            for (int i = 0; i < chars.Length; i++)
             {
-                letters[i] = chars[rand.Next(0, chars.Length - 1)];
+                chars[i] = alphabet[rand.Next(0, alphabet.Length - 1)];
             }
 
-            return firstNumbers + letters.ToString() + secondNumbers;
+            string letters = new string(chars);
+
+            return firstNumbers + letters + secondNumbers;
         }
     }
 }

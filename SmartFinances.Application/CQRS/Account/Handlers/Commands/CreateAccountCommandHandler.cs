@@ -24,7 +24,7 @@ namespace SmartFinances.Application.CQRS.Account.Handlers.Commands
 
         public async Task<Unit> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
         {
-            var account = _accountFactory.CreateAccount(request.AccountDto);
+            var account = _accountFactory.CreateAccount(request.UserId);
             await _unitOfWork.Accounts.AddAsync(account);
             await _unitOfWork.SaveAsync();
 

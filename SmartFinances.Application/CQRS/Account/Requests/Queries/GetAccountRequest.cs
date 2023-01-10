@@ -10,6 +10,6 @@ namespace SmartFinances.Application.CQRS.Account.Requests.Queries
 {
     public class GetAccountRequest : IRequest<AccountDto>
     {
-        public int Id { get; set; }
+        public string UserId { get; set; }
     }
 }

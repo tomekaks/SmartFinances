@@ -24,7 +24,7 @@ namespace SmartFinances.Application.CQRS.Account.Handlers.Queries
 
         public async Task<AccountDto> Handle(GetAccountRequest request, CancellationToken cancellationToken)
         {
-            var account = await _unitOfWork.Accounts.GetByIdAsync(request.Id);
+            var account = await _unitOfWork.Accounts.GetAsync(q => q.UserId == request.UserId);
             return _accountFactory.CreateAccountDto(account);
         }
     }

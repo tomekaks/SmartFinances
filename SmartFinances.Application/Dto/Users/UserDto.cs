@@ -13,6 +13,6 @@ namespace SmartFinances.Application.Dto.Users
         public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public List<AccountDto> MyProperty { get; set; }
+        public List<AccountDto> Accounts { get; set; }
     }
 }

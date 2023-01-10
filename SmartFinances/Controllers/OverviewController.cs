@@ -6,24 +6,24 @@ using SmartFinances.Models.Overview;
 namespace SmartFinances.Controllers
 {
     [Authorize]
-    public class OverviewController : Controller
+    public class OverviewController : BaseController
     {
         private readonly IOverviewService _overviewService;
 
-        public OverviewController(IOverviewService overviewService)
+        public OverviewController(IOverviewService overviewService, IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
         {
             _overviewService = overviewService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var model = await _overviewService.GenerateOverviewAsync();
+            var model = await _overviewService.GenerateOverviewAsync(UserId);
             return View(model);
         }
 
         public async Task<IActionResult> UpdateBalance()
         {
-            var model = await _overviewService.GetAccountAsync();
+            var model = await _overviewService.GetAccountAsync(UserId);
             return View(model);
         }
         [HttpPost]

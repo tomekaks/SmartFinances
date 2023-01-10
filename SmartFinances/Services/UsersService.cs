@@ -3,6 +3,7 @@ using SmartFinances.Application.Dto.Users;
 using SmartFinances.Application.Interfaces.Services;
 using SmartFinances.Interfaces;
 using SmartFinances.Models.Users;
+using System.Security.Claims;
 
 namespace SmartFinances.Services
 {
@@ -33,5 +34,6 @@ namespace SmartFinances.Services
             var newUser = _mapper.Map<RegisterDto>(registerVM);
             await _authService.Register(newUser);
         }
+
     }
 }

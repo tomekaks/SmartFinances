@@ -10,6 +10,6 @@ namespace SmartFinances.Application.CQRS.Account.Requests.Commands
 {
     public class CreateAccountCommand :IRequest
     {
-        public AccountDto AccountDto { get; set; }
+        public string UserId{ get; set; }
     }
 }

@@ -6,11 +6,11 @@ using SmartFinances.Models.Expenses;
 namespace SmartFinances.Controllers
 {
     [Authorize]
-    public class ExpensesController : Controller
+    public class ExpensesController : BaseController
     {
         private readonly IExpensesService _expensesService;
 
-        public ExpensesController(IExpensesService expensesService)
+        public ExpensesController(IExpensesService expensesService, IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
         {
             _expensesService = expensesService;
         }

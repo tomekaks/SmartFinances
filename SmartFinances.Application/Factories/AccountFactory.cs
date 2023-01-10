@@ -24,6 +24,15 @@ namespace SmartFinances.Application.Factories
             return _mapper.Map<Account>(accountDto); 
         }
 
+        public Account CreateAccount(string userId)
+        {
+            return new Account()
+            {
+                UserId = userId,
+                Number = GenerateAccountNumber()
+            };
+        }
+
         public AccountDto CreateAccountDto(Account account)
         {
             return _mapper.Map<AccountDto>(account);
@@ -32,6 +41,24 @@ namespace SmartFinances.Application.Factories
         public Account MapToModel(AccountDto accountDto, Account model)
         {
            return _mapper.Map(accountDto, model);
+        }
+
+        private string GenerateAccountNumber()
+        {
+            var rand = new Random();
+            var firstNumbers = rand.Next(10, 99).ToString();
+            var secondNumbers = rand.Next(100000, 999999).ToString();
+            var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var chars = new char[4];
+
+            for (int i = 0; i < chars.Length; i++)
+            {
+                chars[i] = alphabet[rand.Next(0, alphabet.Length - 1)];
+            }
+
+            string letters = new string(chars);
+
+            return firstNumbers + letters + secondNumbers;
         }
     }
 }

@@ -25,15 +25,15 @@ namespace SmartFinances.Services
             await _mediator.Send(new UpdateAccountCommand { AccountDto = accountDto});
         }
 
-        public async Task<OverviewVM> GenerateOverviewAsync()
+        public async Task<OverviewVM> GenerateOverviewAsync(string userId)
         {
-            var account = await _mediator.Send(new GetAccountRequest { Id = 2 });
+            var account = await _mediator.Send(new GetAccountRequest { UserId = userId });
             return _mapper.Map<OverviewVM>(account);
         }
 
-        public async Task<UpdateBalanceVM> GetAccountAsync()
+        public async Task<UpdateBalanceVM> GetAccountAsync(string userId)
         {
-            var accountDto = await _mediator.Send(new GetAccountRequest { Id = 2 });
+            var accountDto = await _mediator.Send(new GetAccountRequest { UserId = userId });
             return _mapper.Map<UpdateBalanceVM>(accountDto);
         }
     }

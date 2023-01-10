@@ -5,8 +5,8 @@ namespace SmartFinances.Interfaces
 {
     public interface IOverviewService
     {
-        Task<OverviewVM> GenerateOverviewAsync();
+        Task<OverviewVM> GenerateOverviewAsync(string userId);
         Task UpdateBalanceAsync(UpdateBalanceVM model);
-        Task<UpdateBalanceVM> GetAccountAsync();
+        Task<UpdateBalanceVM> GetAccountAsync(string userId);
     }
 }
