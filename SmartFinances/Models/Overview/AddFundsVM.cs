@@ -2,7 +2,7 @@
 
 namespace SmartFinances.Models.Overview
 {
-    public class UpdateBalanceVM
+    public class AddFundsVM
     {
         public int Id { get; set; }
         [Range(1, 1000000)]

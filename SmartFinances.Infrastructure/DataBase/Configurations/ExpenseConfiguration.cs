@@ -26,8 +26,8 @@ namespace SmartFinances.Infrastructure.DataBase.Configurations
                    .IsRequired()
                    .HasConversion<string>();
 
-            builder.HasOne(a => a.Account)
-                   .WithMany()
+            builder.HasOne(e => e.Account)
+                   .WithMany(a => a.Expenses)
                    .HasForeignKey(e => e.AccountId);
         }
     }

@@ -21,21 +21,22 @@ namespace SmartFinances.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> UpdateBalance()
+        public async Task<IActionResult> AddFunds()
         {
-            var model = await _overviewService.GetAccountAsync(UserId);
+            //var model = await _overviewService.GetAccountAsync(UserId);
+            var model = new AddFundsVM();
             return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateBalance(UpdateBalanceVM model)
+        public async Task<IActionResult> AddFunds(AddFundsVM model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            await _overviewService.UpdateBalanceAsync(model);
+            await _overviewService.AddFundsAsync(model, UserId);
 
             return RedirectToAction(nameof(Index));
         }

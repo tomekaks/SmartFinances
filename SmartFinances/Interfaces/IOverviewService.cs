@@ -1,4 +1,5 @@
 ﻿
+using SmartFinances.Application.Dto;
 using SmartFinances.Models.Overview;
 
 namespace SmartFinances.Interfaces
@@ -6,7 +7,8 @@ namespace SmartFinances.Interfaces
     public interface IOverviewService
     {
         Task<OverviewVM> GenerateOverviewAsync(string userId);
-        Task UpdateBalanceAsync(UpdateBalanceVM model);
-        Task<UpdateBalanceVM> GetAccountAsync(string userId);
+        Task<AddFundsVM> GenerateAddFundsViewAsync(string userId);
+        Task AddFundsAsync(AddFundsVM model, string userId);
+        Task<AccountDto> GetAccountAsync(string userId);
     }
 }

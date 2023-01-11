@@ -1,16 +1,16 @@
-﻿@model SmartFinances.Models.Overview.UpdateBalanceVM
+﻿@model SmartFinances.Models.Overview.AddFundsVM
 
 @{
-    ViewData["Title"] = "UpdateBalance";
+    ViewData["Title"] = "AddFunds";
 }
 
-<h1>Add Balance</h1>
+<h1>Add Funds</h1>
 
 
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="UpdateBalance">
+        <form asp-action="AddFunds">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input hidden asp-for="Id" />
             <div class="form-group">
@@ -20,7 +20,7 @@
             </div>
             <br />
             <div class="form-group">
-                <input type="submit" value="Update" class="btn btn-success" />
+                <input type="submit" value="Add" class="btn btn-success" />
             </div>
         </form>
     </div>

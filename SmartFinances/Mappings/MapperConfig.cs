@@ -13,7 +13,7 @@ namespace SmartFinances.Mappings
         {
             CreateMap<AccountDto, OverviewVM>()
                 .ForMember(dest => dest.AccountNumber, opt => opt.MapFrom(src => src.Number)).ReverseMap();
-            CreateMap<AccountDto, UpdateBalanceVM>().ReverseMap();
+            CreateMap<AccountDto, AddFundsVM>().ReverseMap();
 
             CreateMap<ExpenseDto, AddExpenseVM>().ReverseMap();
 

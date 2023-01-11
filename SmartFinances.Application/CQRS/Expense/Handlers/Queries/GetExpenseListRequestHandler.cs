@@ -24,7 +24,7 @@ namespace SmartFinances.Application.CQRS.Expense.Handlers.Queries
 
         public async Task<List<ExpenseDto>> Handle(GetExpenseListRequest request, CancellationToken cancellationToken)
         {
-            var expenses = await _unitOfWork.Expenses.GetAllAsync();
+            var expenses = await _unitOfWork.Expenses.GetAllAsync(q => q.AccountId == request.AccountId);
             return _expenseFactory.CreateExpenseDtoList(expenses.ToList());
         }
     }

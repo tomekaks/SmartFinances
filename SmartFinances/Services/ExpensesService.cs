@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
+using SmartFinances.Application.CQRS.Account.Requests.Commands;
+using SmartFinances.Application.CQRS.Account.Requests.Queries;
 using SmartFinances.Application.CQRS.Expense.Requests.Commands;
 using SmartFinances.Application.CQRS.Expense.Requests.Queries;
 using SmartFinances.Application.Dto;
@@ -19,18 +21,32 @@ namespace SmartFinances.Services
             _mapper = mapper;
         }
 
-        public async Task AddExpenseAsync(AddExpenseVM model)
+        public async Task AddExpenseAsync(AddExpenseVM model, string userId)
         {
+            var accountDto = await GetAccountDtoAsync(userId);
             var expenseDto = _mapper.Map<ExpenseDto>(model);
+
             expenseDto.Date = DateTime.Today;
+            expenseDto.AccountId = accountDto.Id;
             await _mediator.Send(new CreateExpenseCommand { ExpenseDto = expenseDto });
+
+            //accountDto.Balance -= expenseDto.Amount;
+
+            //await _mediator.Send(new UpdateAccountCommand { AccountDto = accountDto });
         }
 
-        public async Task<ExpensesVM> GetExpensesListAsync()
+        public async Task<ExpensesVM> GetExpensesListAsync(string userId)
         {
-            var expenseDtoList = await _mediator.Send(new GetExpenseListRequest());
+            var accountDto = await GetAccountDtoAsync(userId);
+
+            var expenseDtoList = await _mediator.Send(new GetExpenseListRequest { AccountId = accountDto.Id});
             var model = new ExpensesVM { Expenses = expenseDtoList };
             return model;
+        }
+
+        public async Task<AccountDto> GetAccountDtoAsync(string userId)
+        {
+            return await _mediator.Send(new GetAccountRequest { UserId = userId });
         }
     }
 }

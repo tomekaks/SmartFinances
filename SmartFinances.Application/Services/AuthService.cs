@@ -51,22 +51,6 @@ namespace SmartFinances.Application.Services
             await _mediator.Send(new CreateAccountCommand { UserId = user.Id });    
             return true;
         }
-        private string GenerateAccountNumber()
-        {
-            var rand = new Random();
-            var firstNumbers = rand.Next(10, 99).ToString();
-            var secondNumbers = rand.Next(100000, 999999).ToString();
-            var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            var chars = new char[4];
 
-            for (int i = 0; i < chars.Length; i++)
-            {
-                chars[i] = alphabet[rand.Next(0, alphabet.Length - 1)];
-            }
-
-            string letters = new string(chars);
-
-            return firstNumbers + letters + secondNumbers;
-        }
     }
 }

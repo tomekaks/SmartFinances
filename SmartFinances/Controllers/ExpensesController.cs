@@ -17,7 +17,7 @@ namespace SmartFinances.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var model = await _expensesService.GetExpensesListAsync();
+            var model = await _expensesService.GetExpensesListAsync(UserId);
             return View(model);
         }
 
@@ -35,7 +35,7 @@ namespace SmartFinances.Controllers
                 return View(model);
             }
 
-            await _expensesService.AddExpenseAsync(model);
+            await _expensesService.AddExpenseAsync(model, UserId);
 
             return RedirectToAction(nameof(Index));
         }

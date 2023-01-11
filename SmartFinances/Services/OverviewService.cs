@@ -19,10 +19,18 @@ namespace SmartFinances.Services
             _mapper = mapper;
         }
 
-        public async Task UpdateBalanceAsync(UpdateBalanceVM model)
+        public async Task AddFundsAsync(AddFundsVM model, string userId)
         {
-            var accountDto = _mapper.Map<AccountDto>(model);
+            var accountDto = await GetAccountAsync(userId);
+            accountDto.Balance += model.Balance;
+
             await _mediator.Send(new UpdateAccountCommand { AccountDto = accountDto});
+        }
+
+        public async Task<AddFundsVM> GenerateAddFundsViewAsync(string userId)
+        {
+            var accountDto = await GetAccountAsync(userId);
+            return _mapper.Map<AddFundsVM>(accountDto);
         }
 
         public async Task<OverviewVM> GenerateOverviewAsync(string userId)
@@ -31,10 +39,9 @@ namespace SmartFinances.Services
             return _mapper.Map<OverviewVM>(account);
         }
 
-        public async Task<UpdateBalanceVM> GetAccountAsync(string userId)
+        public async Task<AccountDto> GetAccountAsync(string userId)
         {
-            var accountDto = await _mediator.Send(new GetAccountRequest { UserId = userId });
-            return _mapper.Map<UpdateBalanceVM>(accountDto);
+            return await _mediator.Send(new GetAccountRequest { UserId = userId });
         }
     }
 }

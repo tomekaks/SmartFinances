@@ -14,5 +14,7 @@ namespace SmartFinances.Application.Dto
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
         public ExpenseTypeDto Type { get; set; }
+        public int AccountId { get; set; }
+        public AccountDto Account { get; set; }
     }
 }
