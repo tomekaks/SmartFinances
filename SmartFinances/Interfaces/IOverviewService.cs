@@ -1,5 +1,4 @@
-﻿
-using SmartFinances.Application.Dto;
+﻿using SmartFinances.Application.Dto.AccountDtos;
 using SmartFinances.Models.Overview;
 
 namespace SmartFinances.Interfaces

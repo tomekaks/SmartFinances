@@ -1,4 +1,4 @@
-﻿using SmartFinances.Application.Dto;
+﻿using SmartFinances.Application.Dto.AccountDtos;
 using SmartFinances.Core.Data;
 using System;
 using System.Collections.Generic;

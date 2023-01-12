@@ -67,7 +67,7 @@ namespace SmartFinances.Infrastructure.Repositories
 
         public void Update(T entity)
         {
-            _context.Update(entity);
+            _db.Update(entity);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using SmartFinances.Application.CQRS.Account.Requests.Queries;
-using SmartFinances.Application.Dto;
+using SmartFinances.Application.Dto.AccountDtos;
 using SmartFinances.Application.Interfaces.Factories;
 using SmartFinances.Application.Interfaces.Repositories;
 using System;

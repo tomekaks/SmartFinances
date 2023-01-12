@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SmartFinances.Application.Dto;
+using SmartFinances.Application.Dto.ExpenseDtos;
 using SmartFinances.Application.Interfaces.Factories;
 using SmartFinances.Core.Data;
 using System;
@@ -35,6 +35,10 @@ namespace SmartFinances.Application.Factories
         }
 
         public Expense MapToModel(ExpenseDto expenseDto, Expense model)
+        {
+            return _mapper.Map(expenseDto, model);
+        }
+        public Expense MapToModel(EditExpenseDto expenseDto, Expense model)
         {
             return _mapper.Map(expenseDto, model);
         }

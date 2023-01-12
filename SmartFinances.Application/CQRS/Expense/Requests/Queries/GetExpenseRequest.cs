@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using SmartFinances.Application.Dto;
+using SmartFinances.Application.Dto.ExpenseDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;

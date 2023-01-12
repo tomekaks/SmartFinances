@@ -1,4 +1,4 @@
-﻿using SmartFinances.Application.Dto;
+﻿using SmartFinances.Application.Dto.ExpenseDtos;
 
 namespace SmartFinances.Models.Expenses
 {

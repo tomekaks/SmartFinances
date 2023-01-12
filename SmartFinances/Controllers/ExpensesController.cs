@@ -39,5 +39,24 @@ namespace SmartFinances.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> EditExpense(int id)
+        {
+            var model = await _expensesService.GenerateEditExpenseVMAsync(id);
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditExpense(EditExpenseVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            await _expensesService.EditExpenseAsync(model, UserId);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

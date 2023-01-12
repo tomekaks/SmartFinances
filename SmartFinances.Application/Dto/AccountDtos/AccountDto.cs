@@ -1,10 +1,11 @@
-﻿using System;
+﻿using SmartFinances.Application.Dto.ExpenseDtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartFinances.Application.Dto
+namespace SmartFinances.Application.Dto.AccountDtos
 {
     public class AccountDto
     {

@@ -5,16 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartFinances.Application.Dto
+namespace SmartFinances.Application.Dto.ExpenseDtos
 {
-    public class ExpenseDto
+    public class EditExpenseDto
     {
         public int Id { get; set; }
-        public string Name { get; set; }
         public decimal Amount { get; set; }
-        public DateTime Date { get; set; }
         public ExpenseTypeDto Type { get; set; }
-        public int AccountId { get; set; }
-        public AccountDto Account { get; set; }
     }
 }

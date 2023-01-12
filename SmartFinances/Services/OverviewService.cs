@@ -2,7 +2,7 @@
 using MediatR;
 using SmartFinances.Application.CQRS.Account.Requests.Commands;
 using SmartFinances.Application.CQRS.Account.Requests.Queries;
-using SmartFinances.Application.Dto;
+using SmartFinances.Application.Dto.AccountDtos;
 using SmartFinances.Interfaces;
 using SmartFinances.Models.Overview;
 

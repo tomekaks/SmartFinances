@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using SmartFinances.Application.Dto;
+using SmartFinances.Application.Dto.ExpenseDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace SmartFinances.Application.CQRS.Expense.Requests.Commands
 {
     public class UpdateExpenseCommand : IRequest
     {
-        public ExpenseDto ExpenseDto{ get; set; }
+        public EditExpenseDto ExpenseDto{ get; set; }
     }
 }
