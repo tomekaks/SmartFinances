@@ -10,6 +10,6 @@ namespace SmartFinances.Application.CQRS.Account.Requests.Commands
 {
     public class UpdateAccountCommand : IRequest
     {
-        public AccountDto AccountDto { get; set; }
+        public UpdateAccountDto AccountDto { get; set; }
     }
 }

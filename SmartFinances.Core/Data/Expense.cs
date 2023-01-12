@@ -16,5 +16,6 @@ namespace SmartFinances.Core.Data
         public ExpenseType Type { get; set; }
         public int AccountId { get; set; }
         public Account Account { get; set; }
+        public bool IsRegular { get; set; }
     }
 }

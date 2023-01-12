@@ -43,6 +43,11 @@ namespace SmartFinances.Application.Factories
            return _mapper.Map(accountDto, model);
         }
 
+        public Account MapToModel(UpdateAccountDto accountDto, Account model)
+        {
+            return _mapper.Map(accountDto, model);
+        }
+
         private string GenerateAccountNumber()
         {
             var rand = new Random();

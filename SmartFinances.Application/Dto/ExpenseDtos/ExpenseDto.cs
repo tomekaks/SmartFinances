@@ -17,5 +17,6 @@ namespace SmartFinances.Application.Dto.ExpenseDtos
         public ExpenseTypeDto Type { get; set; }
         public int AccountId { get; set; }
         public AccountDto Account { get; set; }
+        public bool IsRegular { get; set; }
     }
 }

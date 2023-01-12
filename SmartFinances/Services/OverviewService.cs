@@ -24,7 +24,13 @@ namespace SmartFinances.Services
             var accountDto = await GetAccountAsync(userId);
             accountDto.Balance += model.Balance;
 
-            await _mediator.Send(new UpdateAccountCommand { AccountDto = accountDto});
+            var updateAccountDto = new UpdateAccountDto()
+            {
+                Id = accountDto.Id,
+                Balance = accountDto.Balance + model.Balance
+            };
+
+            await _mediator.Send(new UpdateAccountCommand { AccountDto = updateAccountDto});
         }
 
         public async Task<AddFundsVM> GenerateAddFundsViewAsync(string userId)

@@ -58,5 +58,15 @@ namespace SmartFinances.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteExpense(int id)
+        {
+ 
+            await _expensesService.DeleteExpenseAsync(id);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace SmartFinances.Application.Mappings
             CreateMap<Account, AccountDto>();
             CreateMap<AccountDto, Account>()
                 .ForMember(src => src.Number, opt => opt.Ignore());
+            CreateMap<Account, UpdateAccountDto>().ReverseMap();
 
             CreateMap<ExpenseType, ExpenseTypeDto>().ReverseMap();
 

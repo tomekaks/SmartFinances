@@ -10,5 +10,6 @@ namespace SmartFinances.Interfaces
         Task<AccountDto> GetAccountDtoAsync(string userId);
         Task<EditExpenseVM> GenerateEditExpenseVMAsync(int id);
         Task EditExpenseAsync(EditExpenseVM model, string userId);
+        Task DeleteExpenseAsync(int id);
     }
 }
