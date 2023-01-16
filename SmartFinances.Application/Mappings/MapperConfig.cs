@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SmartFinances.Application.Dto.ExpenseDtos;
 using SmartFinances.Application.Dto.AccountDtos;
+using SmartFinances.Application.Dto.RegularExpenseDtos;
 
 namespace SmartFinances.Application.Mappings
 {
@@ -31,6 +32,7 @@ namespace SmartFinances.Application.Mappings
             CreateMap<ApplicationUser, LoginDto>().ReverseMap();
             CreateMap<ApplicationUser, UserDto>().ReverseMap();
 
+            CreateMap<RegularExpense, RegularExpenseDto>().ReverseMap();
         }
     }
 }

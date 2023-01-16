@@ -1,4 +1,5 @@
 ﻿using SmartFinances.Application.Dto.ExpenseDtos;
+using SmartFinances.Application.Dto.RegularExpenseDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace SmartFinances.Application.Dto.AccountDtos
         public decimal Balance { get; set; }
         public string UserId { get; set; }
         public List<ExpenseDto> Expenses { get; set; }
+        public List<RegularExpenseDto> RegularExpenses { get; set; }
     }
 }
