@@ -39,11 +39,11 @@ namespace SmartFinances.Services
             //await _mediator.Send(new UpdateAccountCommand { AccountDto = updateAccountDto });
         }
 
-        public async Task<ExpensesVM> GetExpensesListAsync(string userId)
+        public async Task<ExpensesVM> GetExpensesListAsync(string userId, bool regular)
         {
             var accountDto = await GetAccountDtoAsync(userId);
 
-            var expenseDtoList = await _mediator.Send(new GetExpenseListRequest { AccountId = accountDto.Id});
+            var expenseDtoList = await _mediator.Send(new GetExpenseListRequest { AccountId = accountDto.Id, Regular = regular});
             var model = new ExpensesVM { Expenses = expenseDtoList };
             return model;
         }
@@ -69,6 +69,11 @@ namespace SmartFinances.Services
         public async Task DeleteExpenseAsync(int id)
         {
             await _mediator.Send(new DeleteExpenseCommand { Id = id });
+        }
+
+        public Task AddRegularExpenseAsync(AddExpenseVM model, string userId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

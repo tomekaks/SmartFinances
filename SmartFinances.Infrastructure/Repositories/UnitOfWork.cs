@@ -17,11 +17,14 @@ namespace SmartFinances.Infrastructure.Repositories
             Accounts = new AccountRepository(context);
             Transfers = new TransferRepository(context);
             Expenses = new ExpenseRepositiory(context);
+            RegularExpenses = new RegularExpenseRepository(context);
         }
 
         public IAccountRepository Accounts { get; private set; }
         public ITransferRepository Transfers { get; private set; }
         public IExpenseRepository Expenses { get; private set; }
+        public IRegularExpenseRepository RegularExpenses { get; private set; }
+
 
         public void Dispose()
         {

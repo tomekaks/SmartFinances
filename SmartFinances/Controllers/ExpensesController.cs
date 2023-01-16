@@ -17,7 +17,7 @@ namespace SmartFinances.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var model = await _expensesService.GetExpensesListAsync(UserId);
+            var model = await _expensesService.GetExpensesListAsync(UserId, false);
             return View(model);
         }
 
@@ -65,6 +65,25 @@ namespace SmartFinances.Controllers
         {
  
             await _expensesService.DeleteExpenseAsync(id);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> AddRegularExpense()
+        {
+            var model = await _expensesService.GetExpensesListAsync(UserId, true);
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddRegularExpense(AddExpenseVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            await _expensesService.AddRegularExpenseAsync(model, UserId);
 
             return RedirectToAction(nameof(Index));
         }

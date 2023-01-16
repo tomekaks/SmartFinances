@@ -11,5 +11,6 @@ namespace SmartFinances.Application.CQRS.Expense.Requests.Queries
     public class GetExpenseListRequest : IRequest<List<ExpenseDto>>
     {
         public int AccountId { get; set; }
+        public bool Regular { get; set; }
     }
 }

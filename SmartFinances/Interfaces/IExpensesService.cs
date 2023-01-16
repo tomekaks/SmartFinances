@@ -5,8 +5,9 @@ namespace SmartFinances.Interfaces
 {
     public interface IExpensesService
     {
-        Task<ExpensesVM> GetExpensesListAsync(string userId);
+        Task<ExpensesVM> GetExpensesListAsync(string userId, bool regular);
         Task AddExpenseAsync(AddExpenseVM model, string userId);
+        Task AddRegularExpenseAsync(AddExpenseVM model, string userId);
         Task<AccountDto> GetAccountDtoAsync(string userId);
         Task<EditExpenseVM> GenerateEditExpenseVMAsync(int id);
         Task EditExpenseAsync(EditExpenseVM model, string userId);
