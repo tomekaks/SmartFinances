@@ -1,12 +1,16 @@
-﻿@model SmartFinances.Models.Expenses.ExpensesVM
+﻿@model SmartFinances.Models.BudgetPlanner.ExpensesVM
 
 @{
-    ViewData["Title"] = "AddRegularExpense";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Regular expenses</h1>
+<h1>Budget Planner</h1>
 <br/>
 
+<p>
+    <a asp-action="AddExpense" class="btn btn-success">Add expense</a> | 
+    <a asp-action="ViewRegularExpenses" class="btn btn-secondary">Regular expenses</a>
+</p>
 
 <table class="table">
     <thead>

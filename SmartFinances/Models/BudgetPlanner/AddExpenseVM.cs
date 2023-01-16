@@ -1,12 +1,14 @@
 ﻿using SmartFinances.Application.Dto.Enums;
+using System.ComponentModel;
 
-namespace SmartFinances.Models.Expenses
+namespace SmartFinances.Models.BudgetPlanner
 {
-    public class EditExpenseVM
+    public class AddExpenseVM
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public decimal Amount { get; set; }
         public ExpenseTypeDto Type { get; set; }
+        [DisplayName("Regular expense")]
+        public bool IsRegular { get; set; }
     }
 }

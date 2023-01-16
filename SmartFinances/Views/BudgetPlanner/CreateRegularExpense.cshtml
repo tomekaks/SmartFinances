@@ -1,17 +1,17 @@
 ﻿@using SmartFinances.Application.Dto.Enums
-@model SmartFinances.Models.Expenses.AddExpenseVM
+@model SmartFinances.Models.BudgetPlanner.CreateRegularExpenseVM
 
 @{
-    ViewData["Title"] = "AddExpense";
+    ViewData["Title"] = "CreateRegularExpense";
 }
 
-<h1>Add Expense</h1>
+<h1>Create a new regular expense</h1>
 
 
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AddExpense">
+        <form asp-action="CreateRegularExpense">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -31,22 +31,14 @@
                 <span asp-validation-for="Type" class="text-danger"></span>
             </div>
             <div class="form-group">
-                    <div class="checkbox">
-                        <label asp-for="IsRegular">
-                            <input asp-for="IsRegular" />
-                            @Html.DisplayNameFor(m => m.IsRegular)
-                        </label>
-                    </div>
-                </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-success" />
+                <input type="submit" value="Add" class="btn btn-success" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+    <a asp-action="ViewRegularExpenses" class="btn btn-primary">Back to List</a>
 </div>
 
 @section Scripts {

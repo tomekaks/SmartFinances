@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using SmartFinances.Application.Dto.Users;
 using SmartFinances.Models.Users;
-using SmartFinances.Models.Expenses;
+using SmartFinances.Models.BudgetPlanner;
 using SmartFinances.Models.Overview;
 using SmartFinances.Application.Dto.ExpenseDtos;
 using SmartFinances.Application.Dto.AccountDtos;
+using SmartFinances.Application.Dto.RegularExpenseDtos;
 
 namespace SmartFinances.Mappings
 {
@@ -20,6 +21,9 @@ namespace SmartFinances.Mappings
             CreateMap<ExpenseDto, EditExpenseVM>().ReverseMap();
             CreateMap<EditExpenseDto, EditExpenseVM>().ReverseMap();
 
+            CreateMap<RegularExpenseDto, CreateRegularExpenseVM>().ReverseMap();
+            CreateMap<RegularExpenseDto, EditExpenseVM>().ReverseMap();
+            CreateMap<RegularExpenseDto, ExpenseDto>().ReverseMap();
 
             CreateMap<RegisterDto, RegisterVM>().ReverseMap();
 

@@ -1,6 +1,6 @@
 ﻿using SmartFinances.Application.Dto.ExpenseDtos;
 
-namespace SmartFinances.Models.Expenses
+namespace SmartFinances.Models.BudgetPlanner
 {
     public class ExpensesVM
     {
