@@ -15,5 +15,6 @@ namespace SmartFinances.Core.Data
         public ApplicationUser User { get; set; }
         public List<Expense> Expenses { get; set; }
         public List<RegularExpense> RegularExpenses { get; set; }
+        public decimal Budget { get; set; }
     }
 }

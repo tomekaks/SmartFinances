@@ -7,6 +7,12 @@
 <h1>Budget Planner</h1>
 <br/>
 
+<h4>Your monthly budget: @Model.Budget</h4>
+<p>
+    <a asp-action="SetBudget" class="btn btn-dark">Set budget</a>
+</p>
+<br />
+
 <p>
     <a asp-action="AddExpense" class="btn btn-success">Add expense</a> | 
     <a asp-action="ViewRegularExpenses" class="btn btn-secondary">Regular expenses</a>

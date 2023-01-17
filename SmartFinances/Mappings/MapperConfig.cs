@@ -23,7 +23,8 @@ namespace SmartFinances.Mappings
 
             CreateMap<RegularExpenseDto, CreateRegularExpenseVM>().ReverseMap();
             CreateMap<RegularExpenseDto, EditExpenseVM>().ReverseMap();
-            CreateMap<RegularExpenseDto, ExpenseDto>().ReverseMap();
+            CreateMap<RegularExpenseDto, ExpenseDto>()
+                .ForMember(src => src.Id, opt => opt.Ignore()).ReverseMap();
 
             CreateMap<RegisterDto, RegisterVM>().ReverseMap();
 

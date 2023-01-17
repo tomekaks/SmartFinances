@@ -17,5 +17,6 @@ namespace SmartFinances.Interfaces
         Task EditRegularExpenseAsync(EditExpenseVM model);
         Task DeleteRegularExpenseAsync(int id);
         Task AddRegularExpenseAsync(int id);
+        Task SetBudget(SetBudgetVM model, string userId);
     }
 }

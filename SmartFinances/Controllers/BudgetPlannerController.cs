@@ -130,5 +130,20 @@ namespace SmartFinances.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult SetBudget()
+        {
+            var model = new SetBudgetVM();
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SetBudget(SetBudgetVM model)
+        {
+            await _budgetPlannerService.SetBudget(model, UserId);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
