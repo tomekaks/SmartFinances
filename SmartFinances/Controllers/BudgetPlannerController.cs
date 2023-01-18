@@ -131,9 +131,9 @@ namespace SmartFinances.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult SetBudget()
+        public async Task<IActionResult> SetBudget()
         {
-            var model = new SetBudgetVM();
+            var model = await _budgetPlannerService.GetBudgetAsync(UserId);
             return View(model);
         }
 

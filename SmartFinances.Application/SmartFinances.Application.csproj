@@ -19,11 +19,4 @@
     <ProjectReference Include="..\SmartFinances.Core\SmartFinances.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="CQRS\Transfer\Handlers\Commands\" />
-    <Folder Include="CQRS\Transfer\Handlers\Queries\" />
-    <Folder Include="CQRS\Transfer\Requests\Commands\" />
-    <Folder Include="CQRS\Transfer\Requests\Queries\" />
-  </ItemGroup>
-
 </Project>

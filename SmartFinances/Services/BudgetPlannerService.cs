@@ -49,7 +49,7 @@ namespace SmartFinances.Services
             var accountDto = await GetAccountDtoAsync(userId);
 
             var expenseDtoList = await _mediator.Send(new GetExpenseListRequest { AccountId = accountDto.Id });
-            var model = new ExpensesVM { Expenses = expenseDtoList, Budget = accountDto.Budget };
+            var model = new ExpensesVM(expenseDtoList, accountDto.Budget);
             return model;
         }
 
@@ -121,6 +121,15 @@ namespace SmartFinances.Services
             expenseDto.Date = DateTime.Today;
 
             await _mediator.Send(new CreateExpenseCommand { ExpenseDto = expenseDto });
+        }
+
+        public async Task<SetBudgetVM> GetBudgetAsync(string userId)
+        {
+            var accountDto = await GetAccountDtoAsync(userId);
+            return new SetBudgetVM()
+            {
+                Budget = accountDto.Budget
+            };
         }
 
         public async Task SetBudget(SetBudgetVM model, string userId)

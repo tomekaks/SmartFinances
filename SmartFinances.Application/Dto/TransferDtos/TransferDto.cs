@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartFinances.Application.Dto
+namespace SmartFinances.Application.Dto.TransferDtos
 {
-    public class TransactionDto
+    public class TransferDto
     {
         public int Id { get; set; }
         public decimal Amount { get; set; }
         public DateTime SendTime { get; set; }
-        public string SenderId { get; set; }
-        public string ReceiverId { get; set; }
+        public int SenderId { get; set; }
+        public int ReceiverId { get; set; }
     }
 }
