@@ -1,16 +1,41 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SmartFinances.Interfaces;
+using SmartFinances.Models.Transfers;
 
 namespace SmartFinances.Controllers
 {
+    [Authorize]
     public class TransfersController : BaseController
     {
-        public TransfersController(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        private readonly ITransfersService _transfersService;
+
+        public TransfersController(IHttpContextAccessor httpContextAccessor, ITransfersService transfersService) : base(httpContextAccessor)
         {
+            _transfersService = transfersService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var model = await _transfersService.GetTransfers(UserId);
+            return View(model);
+        }
+
+        public IActionResult NewTransfer()
+        {
+            var model = new NewTransferVM();
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> NewTransfer(NewTransferVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            await _transfersService.CreateNewTransfer(model, UserId);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

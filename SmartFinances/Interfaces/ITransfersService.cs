@@ -4,6 +4,7 @@ namespace SmartFinances.Interfaces
 {
     public interface ITransfersService
     {
-        Task<TransfersVM> GetTransfers();
+        Task<TransfersVM> GetTransfers(string userId);
+        Task CreateNewTransfer(NewTransferVM model, string userId);
     }
 }

@@ -1,0 +1,32 @@
+﻿@model SmartFinances.Models.Transfers.TransfersVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Transfers</h1>
+<hr />
+
+<p>
+    <a asp-action="NewTransfer" class="btn btn-success">New Transfer</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Sender/Receiver</th>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Send date</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Transfers) {
+        <tr>
+            <td>@item. </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+}
+    </tbody>
+</table>

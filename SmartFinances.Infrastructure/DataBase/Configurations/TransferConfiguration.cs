@@ -15,7 +15,22 @@ namespace SmartFinances.Infrastructure.DataBase.Configurations
         {
             builder.Property(q => q.Amount)
                    .IsRequired();
-            
+
+            builder.Property(q => q.SendTime)
+                   .IsRequired();
+
+            builder.Property(q => q.Title)
+                   .IsRequired();
+
+            builder.Property(q => q.ReceiverAccountNumber)
+                   .IsRequired();
+
+            builder.Property(q => q.ReceiverName)
+                   .IsRequired();
+
+            builder.HasOne(t => t.Account)
+                   .WithMany(a => a.Transfers)
+                   .HasForeignKey(t => t.AccountId);
         }
     }
 }

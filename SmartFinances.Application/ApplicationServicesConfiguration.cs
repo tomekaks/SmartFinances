@@ -20,6 +20,7 @@ namespace SmartFinances.Application
             services.AddScoped<IAccountFactory, AccountFactory>();
             services.AddScoped<IExpenseFactory, ExpenseFactory>();
             services.AddScoped<IRegularExpenseFactory, RegularExpenseFactory>();
+            services.AddScoped<ITransferFactory, TransferFactory>();
 
             services.AddScoped<IAuthService, AuthService>();
 

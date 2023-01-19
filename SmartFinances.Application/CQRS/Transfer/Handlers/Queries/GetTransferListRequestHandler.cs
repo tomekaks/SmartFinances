@@ -25,8 +25,7 @@ namespace SmartFinances.Application.CQRS.Transfer.Handlers.Queries
 
         public async Task<List<TransferDto>> Handle(GetTransferListRequest request, CancellationToken cancellationToken)
         {
-            var transferList = await _unitOfWork.Transfers.GetAllAsync(q => q.SenderId == request.AccountId || 
-                                                                            q.ReceiverId == request.AccountId);
+            var transferList = await _unitOfWork.Transfers.GetAllAsync(q => q.AccountId == request.AccountId);
             return _transferFactory.CreateTransferDtoList(transferList.ToList());
         }
     }
