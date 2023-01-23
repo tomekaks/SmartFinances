@@ -20,6 +20,7 @@ namespace SmartFinances.Infrastructure.DataBase
         public DbSet<Transfer> Transfers { get; set; }
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<RegularExpense> RegularExpenses { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
     }
 }
