@@ -10,9 +10,10 @@ namespace SmartFinances.Application.Interfaces.Factories
 {
     public interface ITransferFactory
     {
-        Transfer CreateTransfer(TransferDto transferDto);
-        TransferDto CreateTransferDto(Transfer transfer);
-        Transfer MapToModel(TransferDto transferDto, Transfer model);
-        List<TransferDto> CreateTransferDtoList(List<Transfer> transfers);
+        Transfer CreateTransfer(OutgoingTransferDto transferDto);
+        OutgoingTransferDto CreateTransferDto(Transfer transfer);
+        Transfer MapToModel(OutgoingTransferDto transferDto, Transfer model);
+        List<OutgoingTransferDto> CreateTransferDtoList(List<Transfer> transfers);
+        public List<IncomingTransferDto> CreateIncomingTransferDtoList(List<Transfer> transfers);
     }
 }

@@ -22,7 +22,6 @@ namespace SmartFinances.Services
         public async Task AddFundsAsync(AddFundsVM model, string userId)
         {
             var accountDto = await GetAccountAsync(userId);
-            accountDto.Balance += model.Balance;
 
             var updateAccountDto = new UpdateAccountDto()
             {

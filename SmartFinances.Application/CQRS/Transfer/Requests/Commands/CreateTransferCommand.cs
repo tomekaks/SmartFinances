@@ -10,6 +10,6 @@ namespace SmartFinances.Application.CQRS.Transfer.Requests.Commands
 {
     public class CreateTransferCommand : IRequest
     {
-        public TransferDto TransferDto { get; set; }
+        public OutgoingTransferDto TransferDto { get; set; }
     }
 }

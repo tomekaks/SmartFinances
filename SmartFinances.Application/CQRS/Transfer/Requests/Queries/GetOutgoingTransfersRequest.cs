@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace SmartFinances.Application.CQRS.Transfer.Requests.Queries
 {
-    public class GetTransferRequest : IRequest<OutgoingTransferDto>
+    public  class GetOutgoingTransfersRequest : IRequest<List<OutgoingTransferDto>>
     {
-        public int TransferId { get; set; }
+        public int AccountId { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace SmartFinances.Services
             var accountDto = await GetAccountDtoAsync(userId);
             var receiverAccount = await _mediator.Send(new GetAccountByNumberRequest { AccountNumber = model.ReceiverAccountNumber });
 
-            var transfer = _mapper.Map<TransferDto>(model);
+            var transfer = _mapper.Map<OutgoingTransferDto>(model);
             transfer.SendTime = DateTime.Today;
             transfer.AccountId = accountDto.Id;
 
@@ -36,9 +36,10 @@ namespace SmartFinances.Services
         public async Task<TransfersVM> GetTransfers(string userId)
         {
             var accountDto = await GetAccountDtoAsync(userId);
-            var transfers = await _mediator.Send(new GetTransferListRequest { AccountId = accountDto.Id });
+            var outgoingTransfers = await _mediator.Send(new GetOutgoingTransfersRequest { AccountId = accountDto.Id });
+            var incomingTransfers = await _mediator.Send(new GetIncomingTransfersRequest { AccountNumber = accountDto.Number });
 
-            return new TransfersVM { Transfers = transfers };
+            return new TransfersVM { OutgoingTransfers = outgoingTransfers, IncomingTransfers = incomingTransfers };
         }
 
         private async Task<AccountDto> GetAccountDtoAsync(string userId)

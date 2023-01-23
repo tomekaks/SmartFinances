@@ -12,18 +12,18 @@ using System.Threading.Tasks;
 
 namespace SmartFinances.Application.CQRS.Transfer.Handlers.Queries
 {
-    public class GetTransferListRequestHandler : IRequestHandler<GetTransferListRequest, List<TransferDto>>
+    public class GetOutgoingTransfersRequestHandler : IRequestHandler<GetOutgoingTransfersRequest, List<OutgoingTransferDto>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ITransferFactory _transferFactory;
 
-        public GetTransferListRequestHandler(IUnitOfWork unitOfWork, ITransferFactory transferFactory)
+        public GetOutgoingTransfersRequestHandler(IUnitOfWork unitOfWork, ITransferFactory transferFactory)
         {
             _unitOfWork = unitOfWork;
             _transferFactory = transferFactory;
         }
 
-        public async Task<List<TransferDto>> Handle(GetTransferListRequest request, CancellationToken cancellationToken)
+        public async Task<List<OutgoingTransferDto>> Handle(GetOutgoingTransfersRequest request, CancellationToken cancellationToken)
         {
             var transferList = await _unitOfWork.Transfers.GetAllAsync(q => q.AccountId == request.AccountId);
             return _transferFactory.CreateTransferDtoList(transferList.ToList());

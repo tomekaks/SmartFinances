@@ -20,12 +20,20 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Transfers) {
+@foreach (var item in Model.OutgoingTransfers) {
         <tr>
-            <td>@item. </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td>@item.ReceiverName</td>
+            <td>@item.Title</td>
+            <td>-@item.Amount</td>
+            <td>@item.SendTime</td>
+        </tr>
+}
+@foreach (var item in Model.IncomingTransfers) {
+        <tr>
+            <td>@item.SenderName</td>
+            <td>@item.Title</td>
+            <td>+@item.Amount</td>
+            <td>@item.SendTime</td>
         </tr>
 }
     </tbody>

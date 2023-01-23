@@ -25,8 +25,19 @@ namespace SmartFinances.Application.CQRS.Transfer.Handlers.Commands
         public async Task<Unit> Handle(CreateTransferCommand request, CancellationToken cancellationToken)
         {
             var transfer = _transferFactory.CreateTransfer(request.TransferDto);
-            await _unitOfWork.Transfers.AddAsync(transfer);
-            await _unitOfWork.SaveAsync();
+
+            var receiverAccount = await _unitOfWork.Accounts.GetAsync(q => q.Number == transfer.ReceiverAccountNumber);
+            var senderAccount = await _unitOfWork.Accounts.GetByIdAsync(transfer.AccountId);
+
+            if (receiverAccount != null)
+            {
+                receiverAccount.Balance += request.TransferDto.Amount;
+
+                senderAccount.Balance -= request.TransferDto.Amount;
+
+                await _unitOfWork.Transfers.AddAsync(transfer);
+                await _unitOfWork.SaveAsync();
+            }
 
             return Unit.Value;
         }

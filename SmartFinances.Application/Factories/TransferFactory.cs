@@ -19,22 +19,26 @@ namespace SmartFinances.Application.Factories
             _mapper = mapper;
         }
 
-        public Transfer CreateTransfer(TransferDto transferDto)
+        public Transfer CreateTransfer(OutgoingTransferDto transferDto)
         {
             return _mapper.Map<Transfer>(transferDto);
         }
 
-        public TransferDto CreateTransferDto(Transfer transfer)
+        public OutgoingTransferDto CreateTransferDto(Transfer transfer)
         {
-            return _mapper.Map<TransferDto>(transfer);
+            return _mapper.Map<OutgoingTransferDto>(transfer);
         }
 
-        public List<TransferDto> CreateTransferDtoList(List<Transfer> transfers)
+        public List<OutgoingTransferDto> CreateTransferDtoList(List<Transfer> transfers)
         {
-            return _mapper.Map<List<TransferDto>>(transfers);
+            return _mapper.Map<List<OutgoingTransferDto>>(transfers);
+        }
+        public List<IncomingTransferDto> CreateIncomingTransferDtoList(List<Transfer> transfers)
+        {
+            return _mapper.Map<List<IncomingTransferDto>>(transfers);
         }
 
-        public Transfer MapToModel(TransferDto transferDto, Transfer model)
+        public Transfer MapToModel(OutgoingTransferDto transferDto, Transfer model)
         {
             return _mapper.Map(transferDto, model);
         }

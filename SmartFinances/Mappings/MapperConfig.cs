@@ -32,7 +32,7 @@ namespace SmartFinances.Mappings
 
             CreateMap<LoginDto, LoginVM>().ReverseMap();
 
-            CreateMap<TransferDto, NewTransferVM>().ReverseMap();
+            CreateMap<OutgoingTransferDto, NewTransferVM>().ReverseMap();
         }
     }
 }

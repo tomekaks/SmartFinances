@@ -48,7 +48,7 @@ namespace SmartFinances.Application.Services
             {
                 return false;
             }
-            await _mediator.Send(new CreateAccountCommand { UserId = user.Id });    
+            await _mediator.Send(new CreateAccountCommand { UserId = user.Id, AccountName = registerDto.UserName });    
             return true;
         }
 

@@ -19,6 +19,9 @@ namespace SmartFinances.Infrastructure.DataBase.Configurations
             builder.Property(q => q.Balance)
                    .IsRequired();
 
+            builder.Property(q => q.Name)
+                   .IsRequired();
+
             builder.HasOne(a => a.User)
                    .WithMany(u => u.Accounts)
                    .HasForeignKey(a => a.UserId);

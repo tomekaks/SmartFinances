@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace SmartFinances.Application.CQRS.Account.Requests.Commands
 {
-    public class CreateAccountCommand :IRequest
+    public class CreateAccountCommand : IRequest
     {
         public string UserId { get; set; }
+        public string AccountName { get; set; }
     }
 }
