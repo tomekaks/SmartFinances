@@ -25,7 +25,6 @@
         <tr>
             <th>Name</th>
             <th>Amount</th>
-            <th>Date</th>
             <th>Type</th>
             <th></th>
         </tr>
@@ -35,7 +34,6 @@
         <tr>
             <td>@Html.DisplayFor(modelitem => item.Name)</td>
             <td>@Html.DisplayFor(modelitem => item.Amount)</td>
-            <td>@Html.DisplayFor(modelitem => item.Date)</td>
             <td>@Html.DisplayFor(modelitem => item.Type)</td>
             <td>
                 <form asp-action="DeleteExpense" asp-route-id="@item.Id">
@@ -45,6 +43,40 @@
             </td>
         </tr>
 }
+    </tbody>
+</table>
+
+<br />
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Housing</th>
+            <th>Utilities</th>
+            <th>Food</th>
+            <th>Clothes</th>
+            <th>Health</th>
+            <th>Entertainment</th>
+            <th>Electronics</th>
+            <th>Household</th>
+            <th>Transportation</th>
+            <th>Personal</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.HousingAmount</td>
+            <td>@Model.UtilitiesAmount</td>
+            <td>@Model.FoodAmount</td>
+            <td>@Model.ClothesAmount</td>
+            <td>@Model.HealthAmount</td>
+            <td>@Model.EntertainmentAmount</td>
+            <td>@Model.ElectronicsAmount</td>
+            <td>@Model.HouseholdAmount</td>
+            <td>@Model.TransportationAmount</td>
+            <td>@Model.PersonalAmount</td>
+        </tr>
     </tbody>
 </table>
 

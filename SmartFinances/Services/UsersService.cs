@@ -18,6 +18,17 @@ namespace SmartFinances.Services
             _authService = authService;
         }
 
+        public async Task ChangePasswordAsync(ChangePasswordVM model, string userId)
+        {
+            await _authService.ChangePasswordAsync(userId, model.OldPassword, model.NewPassword);
+        }
+
+        public async Task<PersonalDataVM> GetPersonalDataAsync(string userId)
+        {
+            var userDto = await _authService.GetPersonalDataAsync(userId);
+            return _mapper.Map<PersonalDataVM>(userDto);
+        }
+
         public async Task Login(LoginVM loginVM)
         {
             var user = _mapper.Map<LoginDto>(loginVM);

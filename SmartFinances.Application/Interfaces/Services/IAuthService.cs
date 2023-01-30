@@ -12,5 +12,7 @@ namespace SmartFinances.Application.Interfaces.Services
         Task Login(LoginDto loginDto);
         Task<bool> Register(RegisterDto registerDto);
         Task Logout();
+        Task<UserDto> GetPersonalDataAsync(string userId);
+        Task ChangePasswordAsync(string userId, string oldPassword, string newPassword);
     }
 }

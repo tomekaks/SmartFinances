@@ -29,7 +29,7 @@ namespace SmartFinances.Application.CQRS.Transfer.Handlers.Commands
             var receiverAccount = await _unitOfWork.Accounts.GetAsync(q => q.Number == transfer.ReceiverAccountNumber);
             var senderAccount = await _unitOfWork.Accounts.GetByIdAsync(transfer.AccountId);
 
-            if (receiverAccount != null)
+            if (receiverAccount != null && senderAccount.Balance >= request.TransferDto.Amount)
             {
                 receiverAccount.Balance += request.TransferDto.Amount;
 

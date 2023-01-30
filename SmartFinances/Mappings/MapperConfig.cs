@@ -37,6 +37,9 @@ namespace SmartFinances.Mappings
 
             CreateMap<ContactDto, NewContactVM>().ReverseMap();
             CreateMap<ContactDto, EditContactVM>().ReverseMap();
+
+            CreateMap<UserDto, PersonalDataVM>().ReverseMap();
+
         }
     }
 }

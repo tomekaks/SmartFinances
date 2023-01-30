@@ -26,4 +26,8 @@
     <ProjectReference Include="..\SmartFinances.Infrastructure\SmartFinances.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\ManageAccount\" />
+  </ItemGroup>
+
 </Project>
