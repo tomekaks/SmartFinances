@@ -1,5 +1,7 @@
 ﻿using MediatR;
 using SmartFinances.Application.CQRS.Expense.Requests.Commands;
+using SmartFinances.Application.CQRS.Expense.Validators;
+using SmartFinances.Application.Exeptions;
 using SmartFinances.Application.Interfaces.Factories;
 using SmartFinances.Application.Interfaces.Repositories;
 using System;
@@ -23,6 +25,14 @@ namespace SmartFinances.Application.CQRS.Expense.Handlers.Commands
 
         public async Task<Unit> Handle(UpdateExpenseCommand request, CancellationToken cancellationToken)
         {
+            var validator = new UpdateExpenseCommandValidator();
+            var validationResult = validator.Validate(request);
+
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationExeption(validationResult);
+            }
+
             var expense = await _unitOfWork.Expenses.GetByIdAsync(request.ExpenseDto.Id);
             expense = _expenseFactory.MapToModel(request.ExpenseDto, expense);
 

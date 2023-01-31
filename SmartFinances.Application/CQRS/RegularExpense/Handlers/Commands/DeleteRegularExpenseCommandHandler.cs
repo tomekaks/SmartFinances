@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace SmartFinances.Application.CQRS.RegularExpense.Handlers.Commands
 {
-    public class DeleteRegularExpenseRequestHandler : IRequestHandler<DeleteRegularExpenseRequest, Unit>
+    public class DeleteRegularExpenseCommandHandler : IRequestHandler<DeleteRegularExpenseCommand, Unit>
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteRegularExpenseRequestHandler(IUnitOfWork unitOfWork)
+        public DeleteRegularExpenseCommandHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<Unit> Handle(DeleteRegularExpenseRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteRegularExpenseCommand request, CancellationToken cancellationToken)
         {
             var regularExpense = await _unitOfWork.RegularExpenses.GetByIdAsync(request.Id);
 

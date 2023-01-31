@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using SmartFinances.Application.Dto.RegularExpenseDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace SmartFinances.Application.CQRS.RegularExpense.Requests.Commands
 {
-    public class UpdateRegularExpenseRequest : IRequest
+    public class DeleteRegularExpenseCommand : IRequest
     {
-        public RegularExpenseDto RegularExpenseDto { get; set; }
+        public int Id { get; set; }
     }
 }

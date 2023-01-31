@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SmartFinances.Application.CQRS.RegularExpense.Requests.Commands
 {
-    public class CreateRegularExpenseRequest : IRequest
+    public class CreateRegularExpenseCommand : IRequest
     {
         public RegularExpenseDto RegularExpenseDto{ get; set; }
     }

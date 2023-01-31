@@ -1,5 +1,7 @@
 ﻿using MediatR;
 using SmartFinances.Application.CQRS.Account.Requests.Commands;
+using SmartFinances.Application.CQRS.Account.Validators;
+using SmartFinances.Application.Exeptions;
 using SmartFinances.Application.Interfaces.Factories;
 using SmartFinances.Application.Interfaces.Repositories;
 using System;
@@ -23,6 +25,14 @@ namespace SmartFinances.Application.CQRS.Account.Handlers.Commands
 
         public async Task<Unit> Handle(UpdateAccountCommand request, CancellationToken cancellationToken)
         {
+            var validator = new UpdateAccountCommandValidator();
+            var validationResult = validator.Validate(request);
+
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationExeption(validationResult);
+            }
+
             var account = await _unitOfWork.Accounts.GetAsync(q => q.Id == request.AccountDto.Id);
             account = _accountFactory.MapToModel(request.AccountDto, account);
 

@@ -1,5 +1,7 @@
 ﻿using MediatR;
 using SmartFinances.Application.CQRS.Contact.Requests.Commands;
+using SmartFinances.Application.CQRS.Contact.Validators;
+using SmartFinances.Application.Exeptions;
 using SmartFinances.Application.Interfaces.Factories;
 using SmartFinances.Application.Interfaces.Repositories;
 using System;
@@ -22,6 +24,14 @@ namespace SmartFinances.Application.CQRS.Contact.Handlers.Commands
         }
         public async Task<Unit> Handle(UpdateContactCommand request, CancellationToken cancellationToken)
         {
+            var validator = new UpdateContactCommandValidator();
+            var validationResult = validator.Validate(request);
+
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationExeption(validationResult);
+            }
+
             var contact = await _unitOfWork.Contacts.GetByIdAsync(request.ContactDto.Id);
             contact = _contactFactory.MapToModel(request.ContactDto, contact);
 

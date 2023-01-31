@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using SmartFinances.Application.CQRS.Transfer.Handlers.Validators;
 using SmartFinances.Application.CQRS.Transfer.Requests.Commands;
+using SmartFinances.Application.Exeptions;
 using SmartFinances.Application.Interfaces.Factories;
 using SmartFinances.Application.Interfaces.Repositories;
 using System;
@@ -24,6 +26,14 @@ namespace SmartFinances.Application.CQRS.Transfer.Handlers.Commands
 
         public async Task<Unit> Handle(CreateTransferCommand request, CancellationToken cancellationToken)
         {
+            var validator = new CreateTransferCommandValidator();
+            var validationResult = validator.Validate(request);
+
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationExeption(validationResult);
+            }
+
             var transfer = _transferFactory.CreateTransfer(request.TransferDto);
 
             var receiverAccount = await _unitOfWork.Accounts.GetAsync(q => q.Number == transfer.ReceiverAccountNumber);

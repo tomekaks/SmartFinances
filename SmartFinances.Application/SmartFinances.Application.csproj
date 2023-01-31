@@ -21,8 +21,4 @@
     <ProjectReference Include="..\SmartFinances.Core\SmartFinances.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Validators\AccountDtos\" />
-  </ItemGroup>
-
 </Project>

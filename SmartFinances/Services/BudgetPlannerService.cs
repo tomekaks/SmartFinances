@@ -94,7 +94,7 @@ namespace SmartFinances.Services
 
             regularExpenseDto.AccountId = accountDto.Id;
 
-            await _mediator.Send(new CreateRegularExpenseRequest { RegularExpenseDto = regularExpenseDto });
+            await _mediator.Send(new CreateRegularExpenseCommand { RegularExpenseDto = regularExpenseDto });
         }
 
         public async Task<EditExpenseVM> GenerateEditRegularExpenseVMAsync(int id)
@@ -106,12 +106,12 @@ namespace SmartFinances.Services
         public async Task EditRegularExpenseAsync(EditExpenseVM model)
         {
             var regularExpenseDto = _mapper.Map<RegularExpenseDto>(model);
-            await _mediator.Send(new UpdateRegularExpenseRequest { RegularExpenseDto = regularExpenseDto });
+            await _mediator.Send(new UpdateRegularExpenseCommand { RegularExpenseDto = regularExpenseDto });
         }
 
         public async Task DeleteRegularExpenseAsync(int id)
         {
-            await _mediator.Send(new DeleteRegularExpenseRequest { Id = id });
+            await _mediator.Send(new DeleteRegularExpenseCommand { Id = id });
         }
 
         public async Task AddRegularExpenseAsync(int id)
