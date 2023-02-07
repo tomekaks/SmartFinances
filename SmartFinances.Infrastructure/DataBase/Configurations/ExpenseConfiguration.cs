@@ -19,9 +19,6 @@ namespace SmartFinances.Infrastructure.DataBase.Configurations
             builder.Property(p => p.Amount)
                    .IsRequired();
 
-            builder.Property(p => p.Date)
-                   .IsRequired();
-
             builder.Property(p => p.Type)
                    .IsRequired()
                    .HasConversion<string>();

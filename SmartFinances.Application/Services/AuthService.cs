@@ -20,7 +20,7 @@ namespace SmartFinances.Application.Services
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
 
-        public AuthService(UserManager<ApplicationUser> userManager, IMapper mapper, 
+        public AuthService(UserManager<ApplicationUser> userManager, IMapper mapper,
                            SignInManager<ApplicationUser> signInManager, IMediator mediator)
         {
             _userManager = userManager;
@@ -62,6 +62,9 @@ namespace SmartFinances.Application.Services
             {
                 return false;
             }
+
+            await _userManager.AddToRoleAsync(user, "User");
+
             await _mediator.Send(new CreateAccountCommand { UserId = user.Id, AccountName = registerDto.UserName });    
             return true;
         }
