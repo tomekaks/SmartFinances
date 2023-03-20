@@ -24,6 +24,7 @@ namespace SmartFinances.Application
             services.AddScoped<IContactFactory, ContactFactory>();
 
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IUsersService, UsersService>();
 
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());

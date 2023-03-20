@@ -2,7 +2,7 @@
 
 namespace SmartFinances.Interfaces
 {
-    public interface IUsersService
+    public interface IManageUserService
     {
         Task Login(LoginVM loginVM);
         Task Register(RegisterVM registerVM);

@@ -6,11 +6,11 @@ namespace SmartFinances.Controllers
 {
     public class UsersController : BaseController
     {
-        private readonly IUsersService _usersService;
+        private readonly IManageUserService _manageUserService;
 
-        public UsersController(IUsersService usersService, IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        public UsersController(IManageUserService usersService, IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
         {
-            _usersService = usersService;
+            _manageUserService = usersService;
         }
 
         public IActionResult Index()
@@ -34,7 +34,7 @@ namespace SmartFinances.Controllers
                 return BadRequest();
             }
 
-            await _usersService.Register(model);
+            await _manageUserService.Register(model);
 
             return RedirectToAction("Index", "Home");
         }
@@ -55,7 +55,7 @@ namespace SmartFinances.Controllers
                 return BadRequest();
             }
 
-            await _usersService.Login(model);
+            await _manageUserService.Login(model);
 
             return RedirectToAction("Index", "Home");
         }
@@ -65,7 +65,7 @@ namespace SmartFinances.Controllers
         public async Task<IActionResult> Logout()
         {
 
-            await _usersService.Logout();
+            await _manageUserService.Logout();
 
             return RedirectToAction("Index", "Home");
         }
@@ -73,7 +73,7 @@ namespace SmartFinances.Controllers
         [HttpGet]
         public async Task<IActionResult> PersonalData()
         {
-            var model = await _usersService.GetPersonalDataAsync(UserId);
+            var model = await _manageUserService.GetPersonalDataAsync(UserId);
             return View(model);
         }
 
@@ -92,7 +92,7 @@ namespace SmartFinances.Controllers
                 return View(model);
             }
 
-            await _usersService.ChangePasswordAsync(model, UserId);
+            await _manageUserService.ChangePasswordAsync(model, UserId);
 
             return RedirectToAction("Index", "Home");
         }

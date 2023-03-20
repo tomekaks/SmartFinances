@@ -1,5 +1,3 @@
-using MediatR;
-using Microsoft.AspNetCore.Identity;
 using SmartFinances.Application;
 using SmartFinances.Infrastructure;
 using SmartFinances.Interfaces;
@@ -20,7 +18,8 @@ builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddScoped<IOverviewService, OverviewService>();
 builder.Services.AddScoped<IBudgetPlannerService, BudgetPlannerService>();
 builder.Services.AddScoped<ITransfersService, TransfersService>();
-builder.Services.AddScoped<IUsersService, UsersService>();
+builder.Services.AddScoped<IManageUserService, ManageUserService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
 
 var app = builder.Build();
 

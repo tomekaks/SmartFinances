@@ -25,7 +25,7 @@
             <td>@item.ReceiverName</td>
             <td>@item.Title</td>
             <td>-@item.Amount</td>
-            <td>@item.SendTime</td>
+            <td>@item.SendTime.ToShortDateString()</td>
         </tr>
 }
 @foreach (var item in Model.IncomingTransfers) {
@@ -33,7 +33,7 @@
             <td>@item.SenderName</td>
             <td>@item.Title</td>
             <td>+@item.Amount</td>
-            <td>@item.SendTime</td>
+            <td>@item.SendTime.ToShortDateString()</td>
         </tr>
 }
     </tbody>

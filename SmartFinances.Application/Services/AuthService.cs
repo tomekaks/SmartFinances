@@ -29,20 +29,6 @@ namespace SmartFinances.Application.Services
             _mediator = mediator;
         }
 
-        public async Task ChangePasswordAsync(string userId, string oldPassword, string newPassword)
-        {
-            var applicationUser = await _userManager.FindByIdAsync(userId);
-
-            await _userManager.ChangePasswordAsync(applicationUser, oldPassword, newPassword);
-        }
-
-        public async Task<UserDto> GetPersonalDataAsync(string userId)
-        {
-            var applicationUser = await _userManager.FindByIdAsync(userId);
-
-            return _mapper.Map<UserDto>(applicationUser);
-        }
-
         public async Task Login(LoginDto loginDto)
         {
             await _signInManager.PasswordSignInAsync(loginDto.UserName, loginDto.Password, isPersistent: false, lockoutOnFailure: false);

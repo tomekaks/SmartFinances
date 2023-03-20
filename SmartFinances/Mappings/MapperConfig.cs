@@ -9,6 +9,7 @@ using SmartFinances.Application.Dto.RegularExpenseDtos;
 using SmartFinances.Application.Dto.TransferDtos;
 using SmartFinances.Models.Transfers;
 using SmartFinances.Application.Dto.ContactDtos;
+using SmartFinances.Models.Administration;
 
 namespace SmartFinances.Mappings
 {
@@ -39,6 +40,7 @@ namespace SmartFinances.Mappings
             CreateMap<ContactDto, EditContactVM>().ReverseMap();
 
             CreateMap<UserDto, PersonalDataVM>().ReverseMap();
+            CreateMap<UserDto, UserDetailsVM>();
 
         }
     }
