@@ -44,5 +44,17 @@ namespace SmartFinances.Services
             user.IsSuspended = true;
             await _usersService.UpdateUsersStatusAsync(user);
         }
+
+        public async Task UnSuspendUser(string userId)
+        {
+            var user = new UsersStatusDto()
+            {
+                Id = userId,
+                IsSuspended = false,
+                SuspensionReason = ""
+            };
+
+            await _usersService.UpdateUsersStatusAsync(user);
+        }
     }
 }

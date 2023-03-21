@@ -50,5 +50,15 @@ namespace SmartFinances.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UnSuspendUser(string id)
+        {
+
+            await _adminService.UnSuspendUser(id);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

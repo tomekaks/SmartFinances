@@ -9,6 +9,7 @@ namespace SmartFinances.Interfaces
         Task<UserDetailsVM> GetUserDetails(string userId);
         Task<SuspendUserVM> GetUser(string userId);
         Task SuspendUser(SuspendUserVM model);
+        Task UnSuspendUser(string userId);
 
     }
 }
