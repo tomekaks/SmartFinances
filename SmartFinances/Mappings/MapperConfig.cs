@@ -41,6 +41,8 @@ namespace SmartFinances.Mappings
 
             CreateMap<UserDto, PersonalDataVM>().ReverseMap();
             CreateMap<UserDto, UserDetailsVM>();
+            CreateMap<UserDto, SuspendUserVM>();
+            CreateMap<UsersStatusDto, SuspendUserVM>().ReverseMap();
 
         }
     }

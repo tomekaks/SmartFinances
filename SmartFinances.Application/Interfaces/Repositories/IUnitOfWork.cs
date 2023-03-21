@@ -13,6 +13,7 @@ namespace SmartFinances.Application.Interfaces.Repositories
         public IExpenseRepository Expenses { get; }
         public IRegularExpenseRepository RegularExpenses { get; }
         public IContactRepository Contacts { get; }
+        public IUserRepository Users { get; }
         Task SaveAsync();
     }
 }

@@ -21,4 +21,9 @@
     <ProjectReference Include="..\SmartFinances.Core\SmartFinances.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CQRS\User\Handlers\Queries\" />
+    <Folder Include="CQRS\User\Requests\Queries\" />
+  </ItemGroup>
+
 </Project>

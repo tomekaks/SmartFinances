@@ -26,9 +26,19 @@
             <td>
                 <a asp-action="UserDetails" asp-route-id="@item.Id" class="btn btn-info">Details</a>
             </td>
-            <td>
-                <a asp-action="SuspendUser" asp-route-id="@item.Id" class="btn btn-danger">Suspend user</a>
-            </td>
+            @if(!item.IsSuspended)
+            {
+                <td>
+                    <a asp-action="SuspendUser" asp-route-id="@item.Id" class="btn btn-danger">Suspend user</a>
+                </td> 
+            }
+            @if(item.IsSuspended)
+            {
+                <td>
+                    <a asp-action="UnSuspendUser" asp-route-id="@item.Id" class="btn btn-secondary">Unsuspend user</a>
+                </td>      
+            }
+
         </tr>
 }
     </tbody>

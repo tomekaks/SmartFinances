@@ -7,7 +7,8 @@ namespace SmartFinances.Interfaces
     {
         Task<UsersVM> GetAllUsers();
         Task<UserDetailsVM> GetUserDetails(string userId);
-        Task SuspendUser(string userId);
+        Task<SuspendUserVM> GetUser(string userId);
+        Task SuspendUser(SuspendUserVM model);
 
     }
 }

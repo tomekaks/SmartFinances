@@ -13,5 +13,6 @@ namespace SmartFinances.Application.Interfaces.Services
         Task ChangePasswordAsync(string userId, string oldPassword, string newPassword);
         Task<List<UserDto>> GetAllUsersAsync();
         Task<UserDto> GetUserWithAccountsAsync(string userId);
+        Task UpdateUsersStatusAsync(UsersStatusDto statusDto);
     }
 }

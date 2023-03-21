@@ -31,9 +31,18 @@ namespace SmartFinances.Services
             return _mapper.Map<UserDetailsVM>(user);
         }
 
-        public Task SuspendUser(string userId)
+        public async Task<SuspendUserVM> GetUser(string userId)
         {
-            throw new NotImplementedException();
+            var user = await _usersService.GetPersonalDataAsync(userId);
+
+            return _mapper.Map<SuspendUserVM>(user);
+        }
+
+        public async Task SuspendUser(SuspendUserVM model)
+        {
+            var user = _mapper.Map<UsersStatusDto>(model);
+            user.IsSuspended = true;
+            await _usersService.UpdateUsersStatusAsync(user);
         }
     }
 }

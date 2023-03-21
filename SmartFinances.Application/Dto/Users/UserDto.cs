@@ -15,5 +15,7 @@ namespace SmartFinances.Application.Dto.Users
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public List<AccountDto> Accounts { get; set; }
+        public bool IsSuspended { get; set; }
+        public string SuspensionReason { get; set; }
     }
 }

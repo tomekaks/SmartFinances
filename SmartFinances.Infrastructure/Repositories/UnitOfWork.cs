@@ -19,6 +19,7 @@ namespace SmartFinances.Infrastructure.Repositories
             Expenses = new ExpenseRepositiory(context);
             RegularExpenses = new RegularExpenseRepository(context);
             Contacts = new ContactRepository(context);
+            Users = new UserRepository(context);
         }
 
         public IAccountRepository Accounts { get; private set; }
@@ -26,6 +27,7 @@ namespace SmartFinances.Infrastructure.Repositories
         public IExpenseRepository Expenses { get; private set; }
         public IRegularExpenseRepository RegularExpenses { get; private set; }
         public IContactRepository Contacts { get; private set; }
+        public IUserRepository Users { get; private set; }
 
 
         public void Dispose()

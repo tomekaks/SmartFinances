@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using SmartFinances.Application.CQRS.Account.Requests.Queries;
+using SmartFinances.Application.CQRS.User.Requests.Commands;
 using SmartFinances.Application.Dto.Users;
 using SmartFinances.Application.Interfaces.Services;
 using SmartFinances.Core.Data;
@@ -56,6 +57,11 @@ namespace SmartFinances.Application.Services
             userDto.Accounts = accounts;
 
             return userDto;
+        }
+
+        public async Task UpdateUsersStatusAsync(UsersStatusDto statusDto)
+        {
+            await _mediator.Send(new UpdateUsersStatusCommand { UsersStatusDto= statusDto });
         }
 
     }

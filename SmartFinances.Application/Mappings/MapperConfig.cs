@@ -33,6 +33,7 @@ namespace SmartFinances.Application.Mappings
             CreateMap<ApplicationUser, RegisterDto>().ReverseMap();
             CreateMap<ApplicationUser, LoginDto>().ReverseMap();
             CreateMap<ApplicationUser, UserDto>().ReverseMap();
+            CreateMap<ApplicationUser, UsersStatusDto>().ReverseMap();
 
             CreateMap<RegularExpense, RegularExpenseDto>().ReverseMap();
 

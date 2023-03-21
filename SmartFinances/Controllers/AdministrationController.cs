@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SmartFinances.Interfaces;
+using SmartFinances.Models.Administration;
 
 namespace SmartFinances.Controllers
 {
@@ -27,6 +28,27 @@ namespace SmartFinances.Controllers
             var model = await _adminService.GetUserDetails(id);
 
             return View(model);
+        }
+
+
+        public async Task<IActionResult> SuspendUser(string id)
+        {
+            var model = await _adminService.GetUser(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SuspendUser(SuspendUserVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            await _adminService.SuspendUser(model);
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
